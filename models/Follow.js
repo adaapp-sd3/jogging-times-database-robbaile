@@ -34,27 +34,7 @@ class Follow {
           return null;
         }
       }
-    
 
-    static getFollowing(userId) {
-        var rows = helpers.getRows('SELECT * FROM follow WHERE userId = ?', [userId])
-
-        if (rows) {
-        return rows.map((row) => new Follow(row))
-        } else {
-        return null
-        }
-    }
-
-    static getFollowers(userId) {
-        var rows = helpers.getRows('SELECT * FROM follow WHERE followId = ?', [userId])
-
-        if (rows) {
-        return rows.map((row) => new Follow(row))
-        } else {
-        return null
-        }
-    }
 
     constructor(databaseRow) {
         this.id = databaseRow.id
