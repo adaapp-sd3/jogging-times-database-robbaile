@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Jog Times</title>
+
+    <link rel="stylesheet" href="/users.css">
+    <link rel="stylesheet" href="/tailwind.css" />
+  </head>
+  <body class="bg-grey-lightest">
+    <header class="fixed pin-x pin-t bg-purple shadow text-white">
+      <div
+        class="mx-auto h-16 p-4 flex items-center justify-between"
+        style="width: 800px"
+      >
+      <a href="/times" class="text-white border border-white rounded p-2 no-underline hover:bg-purple-light ml-4">Home</a>
+        <h2>Jog Times</h2>
+        <div>
+          Signed in as {{ user.name }} ({{ user.email }})
+          <a
+            href="/sign-out"
+            class="text-white border border-white rounded p-2 no-underline hover:bg-purple-light ml-4"
+          >
+            Sign Out
+          </a>
+          <a href="/my-account" class="text-white border border-white rounded p-2 no-underline hover:bg-purple-light ml-4">
+            My account
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <ul class="users-list w-1/2">
+        <h2>Followers</h2>
+        {{#each followers}}
+        <li class="m-4 p-6 rounded-lg bg-white flex-1 shadow flex justify-between">
+            <h2>{{ name }}</h2>
+        </li>
+        {{/each}}
+    </ul>
+    <ul class="users-list w-1/2">
+        <h2>Following</h2>
+        {{#each following}}
+        <li class="m-4 p-6 rounded-lg bg-white flex-1 shadow flex justify-between">
+            <h2>{{ name }}</h2>
+            
+        </li>
+        {{/each}}
+    </ul>
+</body>
+</html>

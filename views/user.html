@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Jog Times</title>
+
+    <link rel="stylesheet" href="/users.css">
+    <link rel="stylesheet" href="/tailwind.css" />
+  </head>
+  <body class="bg-grey-lightest">
+    <header class="fixed pin-x pin-t bg-purple shadow text-white">
+      <div
+        class="mx-auto h-16 p-4 flex items-center justify-between"
+        style="width: 800px"
+      >
+        <a href="/times" class="text-white border border-white rounded p-2 no-underline hover:bg-purple-light ml-4">Home</a>
+        <h2>Jog Times</h2>
+        <div>
+          Signed in as {{ user.name }} ({{ user.email }})
+          <a
+            href="/sign-out"
+            class="text-white border border-white rounded p-2 no-underline hover:bg-purple-light ml-4"
+          >
+            Sign Out
+          </a>
+          <a href="/my-account" class="text-white border border-white rounded p-2 no-underline hover:bg-purple-light ml-4">
+            My account
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main
+      style="width: 800px"
+      class="mx-auto mt-16 pt-4 flex flex-col justify-center "
+    >
+        <h1>User: {{otherUser.name}}</h1>
+        <section class="flex items-center">
+        <div
+          class="m-4 p-6 rounded-lg bg-white flex-1 shadow flex flex-col-reverse"
+        >
+          <h3 class="uppercase text-sm text-indigo-light font-semibold">
+            Total Distance
+          </h3>
+          <div class="text-5xl text-indigo font-semibold">
+            {{ stats.totalDistance }}
+            <span class="text-grey-dark uppercase text-base -ml-2">km</span>
+          </div>
+        </div>
+
+        <div
+          class="m-4 p-6 rounded-lg bg-white flex-1 shadow flex flex-col-reverse"
+        >
+          <h3 class="uppercase text-sm text-blue-light font-semibold">
+            Total Time
+          </h3>
+          <div class="text-5xl text-blue font-semibold">
+            {{ stats.totalTime }}
+            <span class="text-grey-dark uppercase text-base -ml-2">hrs</span>
+          </div>
+        </div>
+
+        <div
+          class="m-4 p-6 rounded-lg bg-white flex-1 shadow flex flex-col-reverse"
+        >
+          <h3 class="uppercase text-sm text-teal-light font-semibold">
+            Average Speed
+          </h3>
+          <div class="text-5xl text-teal font-semibold">
+            {{ stats.avgSpeed }}
+            <span class="text-grey-dark uppercase text-base -ml-2">km/h</span>
+          </div>
+        </div>
+      </section>
+
+        {{#each otherUserTimes}}
+        <div class="card">
+            <h3 class="text-grey-darker uppercase text-base font-normal">
+                {{ date }}
+              </h3>
+              <p class="text-xl mt-2">
+                {{ distance }}
+                <span
+                  class="uppercase text-sm text-grey-darker font-semibold -ml-1"
+                >
+                  km
+                </span>
+                in {{ duration }}
+                <span
+                  class="uppercase text-sm text-grey-darker font-semibold -ml-1"
+                >
+                  hrs
+                </span>
+              </p>
+              <p class="text-xl mt-1">
+                Avg. speed: {{ avgSpeed }}
+                <span
+                  class="uppercase text-sm text-grey-darker font-semibold -ml-1"
+                >
+                  km/hr
+                </span>
+              </p>
+        </div>
+        {{/each}}
+      </section>
+    </main>
+</body>
+</html>

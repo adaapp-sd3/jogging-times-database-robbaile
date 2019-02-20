@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Jog Times</title>
+
+    <!-- Tailwind.css is a CSS library. Read the docs here: -->
+    <!-- https://tailwindcss.com/docs/what-is-tailwind -->
+    <link rel="stylesheet" href="/tailwind.css" />
+  </head>
+<body class="bg-grey-lightest">
+    <header class="fixed pin-x pin-t bg-purple shadow text-white">
+      <div
+        class="mx-auto h-16 p-4 flex items-center justify-between"
+        style="width: 800px"
+      >
+        <h2>Jog Times - My account</h2>
+        <div>
+          Signed in as {{ user.name }} ({{ user.email }})
+          <a
+            href="/sign-out"
+            class="text-white border border-white rounded p-2 no-underline hover:bg-purple-light ml-4"
+          >
+            Sign Out
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main
+      style="width: 800px"
+      class="mx-auto mt-16 pt-4 flex flex-col justify-center "
+    >
+    <div class="m-4 p-6 rounded-lg bg-white flex-1 shadow flex flex-col-reverse">
+        <h3>Following: {{following}}</h3>
+        <h3>Followers: {{followers}}</h3>
+    </div>
+    <a href="/my-account/delete" class="block mt-8 text-red-light no-underline hover:underline">Delete account</a>
+    
+    </main>
+  </body>
+</html>
