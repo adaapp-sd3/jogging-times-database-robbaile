@@ -9,7 +9,7 @@ class Follow {
         var rows = helpers.getRows('SELECT * FROM follow WHERE userId = ?', [userId])
     
         if (rows) {
-          return rows.map((row) => new User(row))
+          return rows.map((row) => new Follow(row))
         } else {
           return null
         }
@@ -19,7 +19,7 @@ class Follow {
         var rows = helpers.getRows('SELECT * FROM follow WHERE followId = ?', [userId])
     
         if (rows) {
-          return rows.map((row) => new User(row))
+          return rows.map((row) => new Follow(row))
         } else {
           return null
         }
@@ -38,8 +38,8 @@ class Follow {
 
     constructor(databaseRow) {
         this.id = databaseRow.id
-        this.name = databaseRow.userId
-        this.email = databaseRow.followId
+        this.userId = databaseRow.userId
+        this.followId = databaseRow.followId
     }
 }
 

@@ -297,8 +297,8 @@ routes.get('/follow', function(req, res) {
 
   console.log(following);
 
-  let followerId = followers.map(follower => User.findById(follower.name));
-  let followingId = following.map(follower => User.findById(follower.email));
+  let followerId = followers.map(follower => User.findById(follower.userId));
+  let followingId = following.map(follower => User.findById(follower.followId));
 
   res.render('follow.html', {
     user: loggedInUser,
